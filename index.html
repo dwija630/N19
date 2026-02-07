@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine 💖</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    font-family: Arial, sans-serif;
+  }
+
+  .card {
+    background: white;
+    padding: 22px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 360px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+
+  h1 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  img {
+    width: 220px;
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .buttons {
+    margin-top: 22px;
+    height: 80px;
+    position: relative;
+  }
+
+  button {
+    padding: 12px 22px;
+    font-size: 15px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    position: absolute;
+    transition: transform 0.3s;
+    white-space: nowrap;
+  }
+
+  #yes {
+    left: 15px;
+    background: #ff4d6d;
+    color: white;
+  }
+
+  #no {
+    right: 15px;
+    background: #e0e0e0;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>My heart already chose you, will you be my Valentine? 💕</h1>
+
+  <!-- LOCAL IMAGE -->
+  <img src="couple.jpg" alt="Cute Couple">
+
+  <div class="buttons">
+    <button id="yes" onclick="yesClick()">Yes 💖</button>
+    <button id="no" onmouseover="moveNo()" ontouchstart="moveNo()">No</button>
+  </div>
+</div>
+
+<script>
+const phrases = [
+  "No",
+  "Are you sure?",
+  "Really sure?",
+  "Think again!",
+  "Last chance!",
+  "Surely not?",
+  "You might regret this!",
+  "Give it another thought!",
+  "Are you absolutely sure?",
+  "This could be a mistake!",
+  "Have a heart!",
+  "Don't be so cold!",
+  "Change of heart?",
+  "Wouldn't you reconsider?",
+  "Is that your final answer?"
+];
+
+let count = 0;
+
+function yesClick() {
+  alert("Yay!!! Bngrm ummah 😘 I Love You ❤️\nNa pranam unnanta varaku ninnu premistune untanu 💘");
+}
+
+function moveNo() {
+  const noBtn = document.getElementById("no");
+
+  // Change button text
+  noBtn.innerText = phrases[Math.min(count, phrases.length - 1)];
+  count++;
+
+  // Move button randomly
+  const x = Math.random() * 220 - 110;
+  const y = Math.random() * 120 - 60;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+}
+</script>
+
+</body>
+</html>
