@@ -84,6 +84,7 @@
 </div>
 
 <script>
+<script>
 const phrases = [
   "No",
   "Are you sure? 😒",
@@ -109,20 +110,23 @@ function moveNo() {
   const noBtn = document.getElementById("no");
   const card = document.querySelector(".card");
 
-  // change text (ALL phrases will show)
+  // show phrase
   noBtn.innerText = phrases[index];
-  index++;
-  if (index >= phrases.length) index = phrases.length - 1; // stop at last message
+
+  // move to next phrase (stop at last)
+  if (index < phrases.length - 1) {
+    index++;
+  }
 
   // get card size
   const cardRect = card.getBoundingClientRect();
 
-  // wider jump range
-  const maxX = cardRect.width / 2 - 80;
-  const maxY = cardRect.height / 2 - 120;
+  // BIGGER jump area
+  const maxX = cardRect.width - noBtn.offsetWidth - 20;
+  const maxY = cardRect.height - noBtn.offsetHeight - 20;
 
-  const x = Math.random() * maxX * 2 - maxX;
-  const y = Math.random() * maxY * 2 - maxY;
+  const x = Math.random() * maxX - maxX / 2;
+  const y = Math.random() * maxY - maxY / 2;
 
   noBtn.style.transform = `translate(${x}px, ${y}px)`;
 }
@@ -132,5 +136,8 @@ function yesClick() {
 }
 </script>
 
+</script>
+
 </body>
 </html>
+
